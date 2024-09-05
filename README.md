@@ -106,10 +106,10 @@ child.foo(123)
 
 Create a new Hypertrace instance inside a class. Often used in the `constructor`.
 
-_If_ this is called before `setTraceFunction` then it will return a cummy class. This means that there will be close to zero overhead when tracing is not needed.
+_If_ this is called before `setTraceFunction` then it will return a dummy class. This means that there will be close to zero overhead when tracing is not needed.
 
 - **props**: (optional) Some properties that are passed along to the trace function
-- **parent**: (optional) A parent hypertrace instance to allow deeper understanding of structure. This is pased to the trace function.
+- **parent**: (optional) A parent hypertrace instance to allow deeper understanding of structure. This is passed to the trace function.
 
 ``` js
 class SomeClass {
@@ -127,7 +127,7 @@ Note: If the trace function has not been set, there is no overhead in calling th
 
 Note: If `.trace()` is called _very_ often then there can be some measurable overhead if the trace function has been set. To avoid this overhead pass `id`, which then always calls the trace function with the same cached parameters. `props` will always be passed.
 
-- **id**: (optional) A id (string) that can be used to significantly speed up tracing, by caching returned resuls.
+- **id**: (optional) A id (string) that can be used to significantly speed up tracing, by caching returned results.
 - **props**: (optional) A map of properties that's passed to the trace function
 
 ``` js
@@ -170,7 +170,7 @@ The `ctx` of this instance. If `createTracer(this)` then `ctx = this`.
 
 ### setTraceFunction(({ object, parentObject, caller }) => { ... })
 
-Set a global trace function that is invoked everytime `.trace()` is being called.
+Set a global trace function that is invoked every time `.trace()` is being called.
 
 **Important**: Tracing is only enabled for objects created after `setTraceFunction` is called.
 
